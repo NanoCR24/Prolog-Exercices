@@ -1,0 +1,38 @@
+% Predicado principal que genera secuencias irreducibles
+secuencia(N, Conjunto, Secuencia) :-
+    length(Secuencia, N),
+    generar_secuencia(Secuencia, Conjunto),
+    es_irreducible(Secuencia).
+
+% Genera una secuencia de longitud N usando elementos del conjunto
+generar_secuencia([], _).
+generar_secuencia([X|Resto], Conjunto) :-
+    member(X, Conjunto),
+    generar_secuencia(Resto, Conjunto).
+
+% Verifica si una secuencia es irreducible
+es_irreducible(Secuencia) :-
+    \+ tiene_subsecuencia_repetida(Secuencia).
+
+% Verifica si hay subsecuencias repetidas adyacentes
+tiene_subsecuencia_repetida(Secuencia) :-
+    length(Secuencia, Len),
+    between(1, Len, SubLen),  % Prueba todas las longitudes posibles de subsecuencias
+    subsecuencia_repetida(Secuencia, SubLen).
+
+% Busca una subsecuencia repetida de longitud específica
+subsecuencia_repetida(Secuencia, SubLen) :-
+    append(Inicio, Resto, Secuencia),
+    length(Sub1, SubLen),
+    append(Sub1, Resto1, Resto),
+    length(Sub2, SubLen),
+    append(Sub2, _, Resto1),
+    Sub1 = Sub2,  % Las subsecuencias son iguales
+    Sub1 \= [].   % La subsecuencia no está vacía
+
+% Predicado auxiliar between/3 (por si no está disponible en tu versión de Prolog)
+between(L, H, L) :- L =< H.
+between(L, H, N) :-
+    L < H,
+    L1 is L + 1,
+    between(L1, H, N).
