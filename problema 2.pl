@@ -1,3 +1,10 @@
+% Integrantes
+% Alonso Usaga Bonilla
+% Juan Pablo Cartín Esquivel
+% Jefferson Sandí Ramírez
+
+
+
 % Predicado principal que genera secuencias irreducibles
 secuencia(N, Conjunto, Secuencia) :-
     length(Secuencia, N),
