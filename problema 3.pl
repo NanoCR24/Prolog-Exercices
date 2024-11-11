@@ -1,3 +1,10 @@
+% Integrantes
+% 305490093 - Alonso Usaga Bonilla
+% 118760067 - Juan Pablo Cartín Esquivel
+% 118780391 - Jefferson Sandí Ramírez
+% EIF400 – Paradigmas de Programación – NRC 50989
+% 2024-11-10 Proyecto #2 – Ejercicio #2.
+
 invertir(Valor, Lista, X):-
     esta(Valor, Lista,_),
     separar(Valor, Lista, Antes, Despues),
@@ -17,11 +24,11 @@ mostrar_lista([Cabeza | Cola]) :-
     write(Cabeza), write(' '),
     mostrar_lista(Cola).
 
-%Funci�n principal para ordenar
+%Función principal para ordenar
 ordenar(Lista, Ordenada) :-
     ordenar_aux(Lista, [], OrdenadaParcial),
     (   de_mayor_a_menor(OrdenadaParcial) ->
-        Ordenada = OrdenadaParcial  % Si la lista est� ordenada DONE
+        Ordenada = OrdenadaParcial  % Si la lista está ordenada DONE
     ;   ordenar(OrdenadaParcial, Ordenada)  % Si no se llama a ordenar otra vez
     ).
 
