@@ -1,9 +1,9 @@
 % Integrantes
-% Alonso Usaga Bonilla
-% Juan Pablo Cartín Esquivel
-% Jefferson Sandí Ramírez
-
-
+% 305490093 - Alonso Usaga Bonilla
+% 118760067 - Juan Pablo Cartín Esquivel
+% 118780391 - Jefferson Sandí Ramírez
+% EIF400 – Paradigmas de Programación – NRC 50989
+% 2024-11-10 Proyecto #2 – Ejercicio #2.
 
 % Predicado principal que genera secuencias irreducibles
 secuencia(N, Conjunto, Secuencia) :-
